@@ -1,0 +1,14 @@
+<IfModule mod_deflate.c>
+SetOutputFilter DEFLATE
+
+# You can't compress what is already compressed
+
+SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png)$ no-gzip dont-vary
+SetEnvIfNoCase Request_URI \.(?:exe|t?gz|zip|bz2|sit|rar)$ no-gzip dont-vary
+
+# Make proxies work as they should.
+<IfModule mod_headers.c>
+Header append Vary User-Agent
+</IfModule>
+
+</IfModule>

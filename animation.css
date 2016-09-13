@@ -1,0 +1,20 @@
+* { outline: 0; margin: 0; padding: 0; }
+
+html, body { height: 100%; height: 100vh; }
+
+body { width: 100%; display: table; background: #999; transition: background 1s; }
+
+.container { display: table-cell; vertical-align: top; height: 100vh; perspective: 1000px; transform-style: preserve-3d; }
+
+#wolf { width: 645px; height: auto; max-width: 90%; max-height: 90%; margin: 0 auto; display: block; overflow: visible; padding-top: 2%; }
+
+#wolf:not(.scattered) path,
+#wolf:not(.scattered) polygon,
+#wolf:not(.scattered) rect { transition: transform .4s, fill-opacity .4s; transform-origin: center center; }
+
+#wolf:not(.scattered) path:hover,
+#wolf:not(.scattered) polygon:hover,
+#wolf:not(.scattered) rect:hover { transform: scale(.9); fill-opacity: .65; }
+
+nav { position: absolute; bottom: 5%; left: 5%; right: 5%; z-index: 100; height: 5%; min-height: 40px; }
+nav button { display: block; width: 100%; background: rgba(0,0,0,.7); font-size: 1em; border: 0 none; color: #fff; font-weight: bold; text-transform: uppercase; cursor: pointer; height: 100%; border-radius: 10px; }
