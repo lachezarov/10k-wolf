@@ -8,7 +8,16 @@ addEventListener('DOMContentLoaded', function() {
 	body = document.getElementsByTagName('body')[0];
 	wolf = document.getElementById('wolf');
 	parts = wolf.querySelectorAll('polygon, path, rect');
-	button = document.getElementById('toggle');
+	button = document.createElement('button');
+
+	button.id = 'toggle';
+	button.innerHTML = 'Assemble';
+	button.title = 'Toggle Animation';
+
+	var nav = document.createElement('nav');
+	nav.appendChild(button);
+
+	body.appendChild(nav);
 
 	prepare(parts);
 
@@ -175,6 +184,8 @@ function scatterParts(parts) {
 	button.innerHTML = 'Assemble';
 	wolf.classList.add('scattered');
 
+	wolf.setAttribute('title', 'Scattered Particles');
+
 	scattered = true;
 }
 
@@ -222,6 +233,8 @@ function resetParts(parts) {
 
 	button.innerHTML = 'Scatter';
 	wolf.classList.remove('scattered');
+
+	wolf.setAttribute('title', 'Wolf Head');
 
 	scattered = false;
 }
